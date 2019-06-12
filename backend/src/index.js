@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const app = express();
 
-const server = require('http').server(app);
+const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 mongoose.connect('mongodb+srv://omni:omni123@cluster0-muldo.mongodb.net/test?retryWrites=true&w=majority', {
