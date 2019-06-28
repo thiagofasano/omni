@@ -6,7 +6,12 @@ const PostController = require('./controllers/PostController');
 const LikeController = require('./controllers/LikeController');
 const upload = multer(uploadConfig);
 
-routes.get('/posts', PostController.index);
+function PostExist(req, res, next){
+    console.log(req, res);
+    return next();
+}
+
+routes.get('/posts', PostExist, PostController.index);
 routes.post('/posts', upload.single('image'), PostController.store);
 routes.post('/posts/:id/like', LikeController.store);
 
